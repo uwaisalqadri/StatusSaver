@@ -20,14 +20,6 @@
         <item name="fontFamily">@font/poppins_medium</item>
     </style>
 
-    <style name="poppins_bold">
-        <item name="fontFamily">@font/poppins_bold</item>
-    </style>
-
-    <style name="poppins_regular">
-        <item name="fontFamily">@font/poppins_regular</item>
-    </style>
-
     <style name="poppins_semibold">
         <item name="fontFamily">@font/poppins_semibold</item>
     </style>

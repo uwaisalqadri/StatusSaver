@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
@@ -15,6 +17,7 @@ import com.masuwes.statussaver.ui.fragment.SavedStatusFragment
 import com.nabinbhandari.android.permissions.PermissionHandler
 import com.nabinbhandari.android.permissions.Permissions
 import kotlinx.android.synthetic.main.activity_main.*
+import umairayub.madialog.MaDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         return result == PackageManager.PERMISSION_GRANTED
 
+
     }
 
     private fun checkPermission() {
@@ -90,4 +94,22 @@ class MainActivity : AppCompatActivity() {
                 }
             })
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

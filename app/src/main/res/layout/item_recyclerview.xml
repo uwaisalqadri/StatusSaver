@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:layout_gravity="center"
-    app:cardCornerRadius="12dp">
+    app:cardCornerRadius="10dp"
+    android:foreground="?attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,9 +19,7 @@
             android:id="@+id/videoView"
             android:layout_width="match_parent"
             android:layout_height="170dp"
-            android:layout_marginTop="15dp"
-            android:src="@android:color/white"
-            android:background="?attr/selectableItemBackground"/>
+            android:src="@android:color/white"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,10 +33,11 @@
 
             <ImageView
                 android:id="@+id/btn_save"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:padding="3dp"
-                android:layout_marginEnd="5dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
                 android:contentDescription="@string/save"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:visibility="visible" />
@@ -67,7 +67,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:text="Image"
-        android:textSize="12sp"
+        android:textSize="13sp"
         android:textColor="#fff" />
 
 </androidx.cardview.widget.CardView>

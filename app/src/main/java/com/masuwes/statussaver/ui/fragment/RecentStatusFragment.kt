@@ -2,10 +2,10 @@ package com.masuwes.statussaver.ui.fragment
 
 import android.os.Bundle
 import android.os.Environment
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -19,7 +19,6 @@ import java.io.File
 
 class RecentStatusFragment : Fragment() {
 
-    lateinit var mAdView: AdView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,11 +29,6 @@ class RecentStatusFragment : Fragment() {
         val swipeRefreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.swipeRLayout)
         val recyclerViewRecent = view.findViewById<RecyclerView>(R.id.recyclerView_recent)
 
-        MobileAds.initialize(context) {}
-        mAdView = view.findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
-
         recyclerViewRecent.adapter = StatusAdapter(
             context!!,
             Utils().getListFiles(
@@ -42,8 +36,7 @@ class RecentStatusFragment : Fragment() {
                     Environment.getExternalStorageDirectory()
                         .toString() + WHATSAPP_STATUSES_LOCATION
                 )
-            ),
-            false
+            ), false
         )
         recyclerViewRecent.layoutManager = GridLayoutManager(context, 2)
 
@@ -53,7 +46,7 @@ class RecentStatusFragment : Fragment() {
                 context!!,
                 Utils().getListFiles(
                     File(
-                        Environment.getExternalStorageDirectory().absolutePath
+                        Environment.getExternalStorageDirectory()
                             .toString() + WHATSAPP_STATUSES_LOCATION
                     )
                 ),
@@ -63,7 +56,6 @@ class RecentStatusFragment : Fragment() {
         }
         return view
     }
-
 
 
     companion object {

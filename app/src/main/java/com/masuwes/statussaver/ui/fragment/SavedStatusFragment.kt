@@ -27,15 +27,10 @@ class SavedStatusFragment : Fragment() {
         avedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_saved_status, container, false)
-        val recyclerViewSaved = view.findViewById<RecyclerView>(R.id.recyclerView_saved)
-        val swipeRefreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.swipeRLayout)
+        val recyclerView_saved = view.findViewById<RecyclerView>(R.id.recyclerView_saved)
+        val swipeRlayout = view.findViewById<SwipeRefreshLayout>(R.id.swipeRLayout)
 
-        MobileAds.initialize(context) {}
-        mAdView = view.findViewById(R.id.adView1)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
-
-        recyclerViewSaved.adapter = StatusAdapter(
+        recyclerView_saved.adapter = StatusAdapter(
             context!!,
             Utils().getListFiles(
                 File(
@@ -45,28 +40,29 @@ class SavedStatusFragment : Fragment() {
             ),
             true
         )
-        recyclerViewSaved.layoutManager = GridLayoutManager(context, 2)
+        recyclerView_saved.layoutManager = GridLayoutManager(context, 2)
 
-        swipeRefreshLayout.setOnRefreshListener {
-            recyclerViewSaved.adapter = StatusAdapter(
+        swipeRlayout.setOnRefreshListener {
+            recyclerView_saved.adapter = StatusAdapter(
                 context!!,
                 Utils().getListFiles(
                     File(
-                        Environment.getExternalStorageDirectory().absolutePath
+                        Environment.getExternalStorageDirectory()
                             .toString() + SAVED_WHATSAPP_STATUSES_LOCATION
                     )
                 ),
                 true
             )
-            swipeRefreshLayout.isRefreshing = false
+            swipeRlayout.isRefreshing = false
         }
         return view
     }
 
 
     companion object {
-        private const val SAVED_WHATSAPP_STATUSES_LOCATION = "/Status Saver/"
+        private const val SAVED_WHATSAPP_STATUSES_LOCATION = "/Saved Status/"
         const val TAG = "Home"
     }
+
 
 }

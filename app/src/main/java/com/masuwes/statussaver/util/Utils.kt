@@ -5,7 +5,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class Utils {
-    constructor()
 
     fun getListFiles(parentDir: File): ArrayList<File> {
         val inFiles = ArrayList<File>()

@@ -64,10 +64,10 @@ class StatusAdapter(
 
         Glide.with(activity)
             .load(status)
+            .centerCrop()
             .into(holder.statusItemView)
 
-        // TODO: Intent to Player Activity
-        holder.itemView.setOnClickListener { view ->
+        holder.itemView.setOnClickListener {
             if (status.endsWith(".mp4")) {
                 val intent = Intent(activity, VideoActivity::class.java)
                 intent.putExtra("videoPath", status)
@@ -77,6 +77,7 @@ class StatusAdapter(
                 intent.putExtra("ImagePath", status)
                 activity.startActivity(intent)
             }
+
         }
     }
 
@@ -134,7 +135,6 @@ class StatusAdapter(
                 throw RuntimeException("Error generating file", e)
             }
 
-
         }
     }
 
@@ -182,6 +182,8 @@ class StatusAdapter(
         var statusItemType: TextView = itemView.findViewById<View>(R.id.itemType) as TextView
         var button1: ImageView = itemView.findViewById<View>(R.id.btn_save) as ImageView
         var buttonShare: ImageView = itemView.findViewById<View>(R.id.btn_share) as ImageView
+
+
     }
 
     companion object {
