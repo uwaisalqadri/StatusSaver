@@ -77,8 +77,13 @@ class StatusAdapter(
                 intent.putExtra("ImagePath", status)
                 activity.startActivity(intent)
             }
-
         }
+
+        holder.itemView.setOnLongClickListener {
+            Toast.makeText(it.context, currentFile.name, Toast.LENGTH_SHORT).show()
+            true
+        }
+
     }
 
     override fun getItemCount(): Int {
